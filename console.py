@@ -85,8 +85,11 @@ class HBnBCommand(cmd.Cmd):
                     except ValueError:
                         continue
 
-        obj.save()
-        print(obj.id)
+        try:
+            obj.save()
+            print(obj.id)
+        except Exception:
+            pass
 
     def do_show(self, arg):
         """Shows an instance based on class name and id.
